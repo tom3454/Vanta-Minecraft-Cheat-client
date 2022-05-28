@@ -9,7 +9,7 @@ for proper operation, read the instructions below
 
 ◆ 1.Open readme, read carefully.
 ◆ 2.Open file Vanta
-◆ 3.Open Fortnite
+◆ 3.Open Minecraft
 ◆ 4.To open menu, press INSERT
 
 
