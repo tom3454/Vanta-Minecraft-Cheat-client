@@ -1,0 +1,52 @@
+BOOL APIENTRY DllMain(
+   HANDLE hModule,	   // Handle to DLL module 
+   DWORD ul_reason_for_call, 
+   LPVOID lpReserved )     // Reserved
+{
+   switch ( ul_reason_for_call )
+   {
+      case DLL_PROCESS_ATTACHED:
+      // A process is loading the DLL.
+      break;
+      
+      case DLL_THREAD_ATTACHED:
+      // A process is creating a new thread.
+      break;
+      
+      case DLL_THREAD_DETACH:
+      // A thread exits normally.
+      break;
+      
+      case DLL_PROCESS_DETACH:
+      // A process unloads the DLL.
+      break;
+   }
+   return TRUE;
+// SampleDLL.cpp
+
+#include "stdafx.h"
+#define EXPORTING_DLL
+#include "sampleDLL.h"
+
+BOOL APIENTRY DllMain( HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
+{
+   return TRUE;
+}
+
+void HelloWorld()
+{
+   MessageBox( NULL, TEXT("Hello World"), 
+   TEXT("In a DLL"), MB_OK);
+}
+// File: SampleDLL.h
+//
+#ifndef INDLL_H
+#define INDLL_H
+
+   #ifdef EXPORTING_DLL
+      extern __declspec(dllexport) void HelloWorld() ;
+   #else
+      extern __declspec(dllimport) void HelloWorld() ;
+   #endif
+
+#endif
